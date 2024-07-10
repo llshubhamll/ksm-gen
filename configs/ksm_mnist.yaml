@@ -1,0 +1,54 @@
+---
+
+dataset:
+  name: 'mnist'
+  n_samples: 1500
+  batch_size: 128
+  dim: 784
+  class_list: [0, 3, 4, 6, 7]
+  fraction: 0.3
+
+
+  
+
+
+optimizer:
+  max_epochs: 8000
+  latent_iters: 15
+  param_iters: 1
+  log_interval: 100
+  vis_interval: 100
+  Minit: zero
+  lrs:
+    Z: 0.01
+    Z_decay: 0.9
+    interval: 10
+    params: 1e-4
+
+
+
+
+
+model:
+  lam: 0.1
+  K: 500
+  rho: 1.0
+  omega: 0.0001
+  sparsity: 0.125
+  Winit: 'Kmeans'
+  perturbation: 0.1
+
+
+update_eta: True
+
+  
+
+device: 'cpu'
+
+  
+
+
+
+hydra:
+  run:
+    dir: results/${now:%Y-%m-%d}/${now:%H-%M}

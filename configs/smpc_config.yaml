@@ -1,0 +1,52 @@
+---
+
+dataset:
+  name: 'sim_data'
+  n_samples: 512
+  batch_size: 64
+  dim: 2
+  class_list: [0, 1, 2, 3, 4]
+  fraction: 0.3
+  
+
+
+optimizer:
+  max_epochs: 100
+  latent_iters: 80
+  param_iters: 1
+  log_interval: 5
+  vis_interval: 20
+  lrs:
+    nodes:
+      Z: 5e-3
+      Y: 5e-3
+
+    params:
+      W: 1e-3
+      M: 5e-4
+      Omega: 1e-3
+    
+    interval: 20
+    Z_decay: 0.9
+
+
+
+seed: 42
+reg: False
+
+model:
+  K: 2
+  rho: 0.2
+  omega: 0.5
+  lam: 1.0
+  
+  
+
+
+  
+
+
+
+hydra:
+  run:
+    dir: ../results/

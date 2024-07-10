@@ -1,0 +1,46 @@
+---
+
+project: 'wandb_test'
+
+dataset:
+  name: 'patches'
+  n_samples: 30000
+  batch_size: 128
+  patch_size: 16
+  max_patches: 5000
+  
+
+
+optimizer:
+  max_epochs: 15000
+  latent_iters: 40
+  param_iters: 1
+  log_interval: 100
+  vis_interval: 20
+  Minit: zero
+  lrs:
+    Z: 1e-3
+    Z_decay: 0.9
+    interval: 20
+    params: 3e-5
+
+
+
+seed: 42
+
+true_data:
+  lam: 0.05
+
+
+model:
+  lam: 0.9
+  K: 192
+  rho: 0.9
+  omega: 1.0
+  Winit: 'Kmeans'
+  perturbation: 0.1
+  
+
+hydra:
+  run:
+    dir: ./results/patches/${now:%Y-%m-%d}/${now:%H-%M}

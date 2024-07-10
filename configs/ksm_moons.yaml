@@ -1,0 +1,46 @@
+---
+
+dataset:
+  name: 'moons'
+  n_samples: 2500
+  batch_size: 128
+  dim: 30
+  
+
+
+optimizer:
+  max_epochs: 3000
+  latent_iters: 20
+  param_iters: 1
+  log_interval: 5
+  vis_interval: 20
+  Minit: zero
+  lrs:
+    Z: 0.01
+    Z_decay: 0.9
+    interval: 20
+    params: 1e-2
+
+
+
+
+
+model:
+  K: 12
+  rho: 1.0
+  omega: 0.1
+  sparsity: 0.125
+  Winit: 'Kmeans'
+  perturbation: 0.1
+
+  
+
+device: 'cpu'
+
+  
+
+
+
+hydra:
+  run:
+    dir: ../results/high_dim/${now:%Y-%m-%d}/${now:%H-%M}
