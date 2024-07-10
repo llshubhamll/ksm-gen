@@ -1,1 +1,1 @@
-# manifold-representations
+# Implicit generative modelling
